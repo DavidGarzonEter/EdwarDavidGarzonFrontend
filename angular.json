@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "EdwarDavidGarzonFrontend"
+    }
+  },
+  "defaultProject": "EdwarDavidGarzonFrontend",
+  "cli": {
+    "analytics": false
+  }
 }
