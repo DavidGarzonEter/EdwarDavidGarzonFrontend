@@ -1,0 +1,65 @@
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Resitro Usuarios</span>
+    <span class="example-spacer"></span>
+    </mat-toolbar>
+
+
+
+  <div style="padding:30px; margin-top: 20px;">
+    <div class="example-flex-container" >
+      <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)='agregarUsuario()'>
+        <mat-icon>add</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" aria-label="Example icon button with a home icon" (click)="editarUsuario()"> 
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon" (click)='eliminarUsuario()'>
+        <mat-icon>delete</mat-icon>
+      </button>
+     </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">   
+
+      <!-- seleccionar -->
+      <ng-container matColumnDef="selecionar">
+        <th mat-header-cell *matHeaderCellDef> Seleccionar </th>
+        <td mat-cell *matCellDef="let element">  <mat-checkbox (change)='change(element.id)'
+          class="example-margin">
+      </mat-checkbox>  </td>
+      </ng-container>
+      
+      <!-- nombre -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+      </ng-container>
+         
+      <!-- apellido -->
+      <ng-container matColumnDef="apellido">
+        <th mat-header-cell *matHeaderCellDef> Apellido </th>
+        <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
+      </ng-container>
+    
+      <!-- telefono -->
+      <ng-container matColumnDef="telefono">
+        <th mat-header-cell *matHeaderCellDef> Telefono </th>
+        <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
+      </ng-container>
+
+       <!-- email -->
+       <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> E-mail </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+       <!-- direccion -->
+       <ng-container matColumnDef="direccion">
+        <th mat-header-cell *matHeaderCellDef> Direccion </th>
+        <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

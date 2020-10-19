@@ -1,0 +1,47 @@
+<h2 *ngIf="data.action == 'add'">Agregar Usuario</h2>
+<h2 *ngIf="data.action == 'edit'">Editar Usuario</h2>
+<div class="container margin">
+    <form [formGroup]="form" (ngSubmit)="form.valid?agregarUsuario(form.value):errorMessage()">
+
+    <div style='display: flex; flex-direction: row; width: 100%; '>
+        <div>          
+
+            <mat-form-field>
+                <input autocomplete="off" type="text" matInput #nombre maxlength="255" placeholder="Nombre" formControlName='nombre'  required>
+                <mat-hint>{{nombre.value.length}}/255</mat-hint>
+            </mat-form-field>
+
+           <mat-form-field>
+                <input autocomplete="off" type="text" matInput #nombre maxlength="255" placeholder="Apellido" formControlName='apellido' required >
+                <mat-hint>{{nombre.value.length}}/255</mat-hint>
+            </mat-form-field>
+
+           <mat-form-field>
+                <input autocomplete="off" type="number" matInput #telefono oninput="this.value = this.value.slice(0,30)"
+                    placeholder="Telefono" formControlName='telefono' required>
+                <mat-hint>{{telefono.value.length}}/30</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input autocomplete="off" type="text" matInput #nombre maxlength="255" placeholder="email" formControlName='email' required>
+                <mat-hint>{{nombre.value.length}}/255</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input autocomplete="off" type="text" matInput #nombre maxlength="255" placeholder="Direccion" formControlName='direccion' required >
+                <mat-hint>{{nombre.value.length}}/255</mat-hint>
+            </mat-form-field>
+
+        </div>
+
+    </div>
+    <div style="display: flex; justify-content: center;">
+        <button style="width: 70%;" color="primary" class="button-save mat-elevation-z5 " mat-raised-button
+            type="submit">Acapetar</button>
+    </div>
+</form>
+
+
+
+
+</div>
